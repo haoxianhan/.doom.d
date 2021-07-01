@@ -54,21 +54,30 @@
 ;; they are implemented.
 
 
-
-
 (setq package-archives '(("gnu"   . "https://mirrors.163.com/elpa/gnu/")
                          ("org-cn". "https://mirrors.163.com/elpa/elpa/org/")
                          ("melpa" . "https://mirrors.163.com/elpa/elpa/melpa/")))
 
 
-;;Key Configuration for Doom as Vanilla Emacs
-;; (setq evil-default-state 'emacs)
+;; for vim mode
+(define-key evil-normal-state-map (kbd "ZZ") 'kill-current-buffer)
+(define-key evil-normal-state-map (kbd "C-p") 'projectile--find-file)
+(define-key evil-normal-state-map (kbd "C-a") 'evil-numbers/inc-at-pt)
+(define-key evil-normal-state-map (kbd "C-x") 'evil-numbers/dec-at-pt)
 
-;;修改windows版本的PATH路径。
-(if (eq system-type 'windows-nt)
-    (setenv "PATH"
-            (concat
-             "C:/ProgramData/scoop/shims" ";"
-             "C:/Users/Administrator/scoop/shims" ";"
-             (getenv "PATH")))
-  nil)
+(define-key evil-normal-state-map (kbd "s") 'evil-substitute)
+
+(setq display-line-numbers-type 'relative)
+
+(map! :ie "C-h" #'backward-delete-char-untabify)
+(map! "C-h" 'previous-buffer)
+(map! "C-l" 'next-buffer)
+
+(map! "C-t" 'treemacs-find-file)
+
+(setq projectile-project-search-path '("~/workspaces/win_tw/tank/" "~/workspaces/my_project"))
+
+
+(setq doom-font (font-spec :family "Source Code Pro" :size 13))
+
+(setq rime-show-candidate 'posframe)

@@ -23,7 +23,7 @@
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
 ;; (setq doom-font (font-spec :family "Source Code Pro" :size 13))
-(setq doom-font (font-spec :family "Fira Code" :size 13))
+(setq doom-font (font-spec :family "Fira Code" :size 18))
 
 
 
@@ -75,8 +75,8 @@
 (setq display-line-numbers-type 'relative)
 
 (map! :ie "C-h" #'backward-delete-char-untabify)
-(map! "C-h" 'previous-buffer)
-(map! "C-l" 'next-buffer)
+(map! "C-h" 'centaur-tabs-backward-tab)
+(map! "C-l" 'centaur-tabs-forward-tab)
 
 (map! "C-t" 'treemacs-find-file)
 
